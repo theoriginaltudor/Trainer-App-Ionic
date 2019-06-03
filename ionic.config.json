@@ -1,5 +1,7 @@
 {
   "name": "Trainer",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
