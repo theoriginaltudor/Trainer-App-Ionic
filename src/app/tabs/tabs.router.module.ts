@@ -35,14 +35,14 @@ const routes: Routes = [
         ]
       },
       {
-        path: '',
+        path: 'view',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'
       }
     ]
   },
   {
-    path: '',
+    path: 'view',
     redirectTo: '/tabs/tab1',
     pathMatch: 'full'
   }
@@ -54,4 +54,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class TabsPageRoutingModule {}
+export class TabsPageRoutingModule { }
