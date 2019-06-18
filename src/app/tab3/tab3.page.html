@@ -1,11 +1,30 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab Three
+      Diet
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <form (ngSubmit)="submitEntry()">
+    <ion-item>
+      <ion-label>Calories</ion-label>
+      <ion-input
+        type="text"
+        [(ngModel)]="entry.calories"
+        name="calories"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Protein</ion-label>
+      <ion-textarea [(ngModel)]="entry.protein" name="protein"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label>Fat</ion-label>
+      <ion-textarea [(ngModel)]="entry.fat" name="fat"></ion-textarea>
+    </ion-item>
+    <ion-button type="submit">Save</ion-button>
+  </form>
   <ion-button (click)="logout()">Logout</ion-button>
 </ion-content>

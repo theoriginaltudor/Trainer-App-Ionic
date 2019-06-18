@@ -1,9 +1,29 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab Two
+      Measurements
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <form (ngSubmit)="submitEntry()">
+    <ion-item>
+      <ion-label>Body weight</ion-label>
+      <ion-input
+        type="text"
+        [(ngModel)]="entry.bodyWeight"
+        name="bodyWeight"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Waist</ion-label>
+      <ion-textarea [(ngModel)]="entry.waist" name="waist"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label>Biceps</ion-label>
+      <ion-textarea [(ngModel)]="entry.biceps" name="biceps"></ion-textarea>
+    </ion-item>
+    <ion-button type="submit">Save</ion-button>
+  </form>
+</ion-content>

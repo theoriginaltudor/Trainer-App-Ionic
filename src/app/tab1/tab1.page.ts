@@ -9,7 +9,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class Tab1Page implements OnInit {
   id: string;
-  list: any[];
+  workoutList: any[];
 
   constructor(private data: DataProviderService, private auth: AuthService) { }
 
@@ -27,7 +27,7 @@ export class Tab1Page implements OnInit {
 
   populateList(id): void {
     this.data.getWorkoutsList(id).subscribe((response) => {
-      this.list = response.data;
+      this.workoutList = response.data;
     })
   }
 }

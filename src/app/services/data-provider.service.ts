@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { AuthService } from "./auth.service";
 import { Observable } from "rxjs";
 import { Storage } from '@ionic/storage';
+import { post } from 'selenium-webdriver/http';
 
 interface IApiResponse {
   success: boolean;
@@ -101,6 +102,38 @@ export class DataProviderService {
       `${
       this.API_URL
       }/history-for-client/${clientId}/for-exercise/${exerciseId}`,
+      {
+        headers: new HttpHeaders().set(
+          "Authorization",
+          `Bearer ${this.auth.idToken}`
+        )
+      }
+    );
+  }
+
+  /**
+   * createMeasurement
+   */
+  public createMeasurement(clientId, entry) {
+    return this.http.post<IApiResponse>(
+      `${this.API_URL}/new-measurement/${clientId}`,
+      entry,
+      {
+        headers: new HttpHeaders().set(
+          "Authorization",
+          `Bearer ${this.auth.idToken}`
+        )
+      }
+    );
+  }
+
+  /**
+   * createDiet
+   */
+  public createDiet(clientId, entry) {
+    return this.http.post<IApiResponse>(
+      `${this.API_URL}/new-diet/${clientId}`,
+      entry,
       {
         headers: new HttpHeaders().set(
           "Authorization",

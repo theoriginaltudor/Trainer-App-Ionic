@@ -1,0 +1,5 @@
+<h2>{{ value.name }}</h2>
+<div *ngFor="let exercise of exerciseList; let i = index">
+  <p>{{ exercise.name }}</p>
+  <p>{{ value.recomendationsList[i] }}</p>
+</div>
