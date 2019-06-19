@@ -11,7 +11,10 @@
     <ion-list-header>
       <ion-label>Workouts</ion-label>
     </ion-list-header>
-    <ion-item *ngFor="let workout of workoutList" href="#">
+    <ion-item
+      *ngFor="let workout of workoutList"
+      (click)="presentPopover(workout)"
+    >
       <app-workout-cell [value]="workout"></app-workout-cell>
     </ion-item>
   </ion-list>

@@ -1,6 +1,6 @@
 import { Injectable, NgZone } from '@angular/core';
 import { Storage } from '@ionic/storage';
-import { Router } from "@angular/router"
+import { Router } from "@angular/router";
 
 // Import AUTH_CONFIG, Auth0Cordova, and auth0.js
 import { AUTH_CONFIG } from './auth.config';

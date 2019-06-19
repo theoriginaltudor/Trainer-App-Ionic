@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>training</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngFor="let exercise of exerciseNameList; let i = index">
+    <p>{{ exercise }}</p>
+    <p>{{ recomendationsList[i] }}</p>
+    <ion-input type="text" [(ngModel)]="historyList[i]"></ion-input>
+  </div>
+  <ion-button (click)="cancelWorkout()">Cancel workout</ion-button>
+  <ion-button (click)="finishWorkout()">Finish workout</ion-button>
+</ion-content>

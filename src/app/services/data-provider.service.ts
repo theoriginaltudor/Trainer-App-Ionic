@@ -28,51 +28,6 @@ export class DataProviderService {
     );
   }
 
-  public getDietsList(clientId): Observable<IApiResponse> {
-    return this.http.get<IApiResponse>(
-      `${this.API_URL}/diets-for-client/${clientId}`,
-      {
-        headers: new HttpHeaders().set(
-          "Authorization",
-          `Bearer ${this.auth.idToken}`
-        )
-      }
-    );
-  }
-
-  public getDietGoal(clientId): Observable<IApiResponse> {
-    return this.http.get<IApiResponse>(
-      `${this.API_URL}/diet-goal-for-client/${clientId}`,
-      {
-        headers: new HttpHeaders().set(
-          "Authorization",
-          `Bearer ${this.auth.idToken}`
-        )
-      }
-    );
-  }
-
-  public getMeasurementsList(clientId): Observable<IApiResponse> {
-    return this.http.get<IApiResponse>(
-      `${this.API_URL}/measurements-for-client/${clientId}`,
-      {
-        headers: new HttpHeaders().set(
-          "Authorization",
-          `Bearer ${this.auth.idToken}`
-        )
-      }
-    );
-  }
-
-  public getExercisesList(): Observable<IApiResponse> {
-    return this.http.get<IApiResponse>(`${this.API_URL}/exercises/`, {
-      headers: new HttpHeaders().set(
-        "Authorization",
-        `Bearer ${this.auth.idToken}`
-      )
-    });
-  }
-
   public getExercise(exerciseId): Observable<IApiResponse> {
     return this.http.get<IApiResponse>(
       `${this.API_URL}/exercise/${exerciseId}`,
@@ -88,20 +43,6 @@ export class DataProviderService {
   public getWorkoutsList(clientId): Observable<IApiResponse> {
     return this.http.get<IApiResponse>(
       `${this.API_URL}/workouts-for-client/${clientId}`,
-      {
-        headers: new HttpHeaders().set(
-          "Authorization",
-          `Bearer ${this.auth.idToken}`
-        )
-      }
-    );
-  }
-
-  public getClientHistory(clientId, exerciseId): Observable<IApiResponse> {
-    return this.http.get<IApiResponse>(
-      `${
-      this.API_URL
-      }/history-for-client/${clientId}/for-exercise/${exerciseId}`,
       {
         headers: new HttpHeaders().set(
           "Authorization",
@@ -133,6 +74,22 @@ export class DataProviderService {
   public createDiet(clientId, entry) {
     return this.http.post<IApiResponse>(
       `${this.API_URL}/new-diet/${clientId}`,
+      entry,
+      {
+        headers: new HttpHeaders().set(
+          "Authorization",
+          `Bearer ${this.auth.idToken}`
+        )
+      }
+    );
+  }
+
+  /**
+   * createHistoryEntry
+   */
+  public createHistoryEntry(entry, clientId, workoutId, exerciseId) {
+    return this.http.post<IApiResponse>(
+      `${this.API_URL}/new-history-entry/${clientId}/${workoutId}/${exerciseId}`,
       entry,
       {
         headers: new HttpHeaders().set(

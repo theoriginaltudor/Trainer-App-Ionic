@@ -1,21 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { DataProviderService } from '../services/data-provider.service';
 import { AuthService } from '../services/auth.service';
+import { PopoverController } from '@ionic/angular';
+import { WorkoutPreviewComponent } from '../workout-preview/workout-preview.component';
 
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
-export class Tab1Page implements OnInit {
+export class Tab1Page {
   id: string;
   workoutList: any[];
 
-  constructor(private data: DataProviderService, private auth: AuthService) { }
-
-  ngOnInit(): void {
-
-  }
+  constructor(private data: DataProviderService, private auth: AuthService, public popoverController: PopoverController) { }
 
   ionViewDidEnter(): void {
     const clientId = this.auth.user.name;
@@ -29,5 +27,14 @@ export class Tab1Page implements OnInit {
     this.data.getWorkoutsList(id).subscribe((response) => {
       this.workoutList = response.data;
     })
+  }
+
+  async presentPopover(workout) {
+    const popover = await this.popoverController.create({
+      component: WorkoutPreviewComponent,
+      translucent: true,
+      componentProps: { "workout": workout }
+    });
+    return await popover.present();
   }
 }
