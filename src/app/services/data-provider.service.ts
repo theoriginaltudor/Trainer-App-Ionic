@@ -3,7 +3,6 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { AuthService } from "./auth.service";
 import { Observable } from "rxjs";
 import { Storage } from '@ionic/storage';
-import { post } from 'selenium-webdriver/http';
 
 interface IApiResponse {
   success: boolean;
