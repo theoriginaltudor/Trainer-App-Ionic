@@ -1,3 +1,15 @@
-<h2>{{ workout.name }}</h2>
-<ion-button (click)="popoverDismiss()">Close</ion-button>
-<ion-button (click)="startWorkout()">Start Workout</ion-button>
+<ion-grid>
+  <ion-row>
+    <ion-col class="heading">
+      {{ workout.name }}
+    </ion-col>
+  </ion-row>
+  <ion-row nowrap>
+    <ion-col>
+      <ion-button (click)="popoverDismiss()">Close</ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button (click)="startWorkout()">Start Workout</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>

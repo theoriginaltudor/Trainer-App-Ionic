@@ -7,16 +7,10 @@
 </ion-header>
 
 <ion-content>
-  <ion-list lines="none">
-    <ion-list-header>
-      <ion-label>Workouts</ion-label>
-    </ion-list-header>
-    <ion-button (click)="startNewWorkout()">Start new workout</ion-button>
-    <ion-item
-      *ngFor="let workout of workoutList"
-      (click)="presentPopover(workout)"
-    >
-      <app-workout-cell [value]="workout"></app-workout-cell>
-    </ion-item>
-  </ion-list>
+  <ion-button (click)="startNewWorkout()">Start new workout</ion-button>
+  <app-workout-cell
+    *ngFor="let workout of workoutList"
+    (click)="presentPopover(workout)"
+    [value]="workout"
+  ></app-workout-cell>
 </ion-content>

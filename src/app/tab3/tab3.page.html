@@ -14,15 +14,20 @@
         type="text"
         [(ngModel)]="entry.calories"
         name="calories"
+        clearInput
       ></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Protein</ion-label>
-      <ion-textarea [(ngModel)]="entry.protein" name="protein"></ion-textarea>
+      <ion-input
+        [(ngModel)]="entry.protein"
+        name="protein"
+        clearInput
+      ></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Fat</ion-label>
-      <ion-textarea [(ngModel)]="entry.fat" name="fat"></ion-textarea>
+      <ion-input [(ngModel)]="entry.fat" name="fat" clearInput></ion-input>
     </ion-item>
     <ion-button type="submit">Save</ion-button>
   </form>

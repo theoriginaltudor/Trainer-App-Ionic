@@ -1,5 +1,10 @@
-<h2>{{ value.name }}</h2>
-<div *ngFor="let exercise of exerciseList; let i = index">
-  <p>{{ exercise.name }}</p>
-  <p>{{ value.recomendationsList[i] }}</p>
-</div>
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>{{ value.name }}</ion-card-title>
+  </ion-card-header>
+
+  <ion-item *ngFor="let exercise of exerciseList; let i = index" lines="none">
+    <ion-label>{{ exercise.name }}</ion-label>
+    <ion-label>{{ value.recomendationsList[i] }}</ion-label>
+  </ion-item>
+</ion-card>

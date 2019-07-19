@@ -14,15 +14,20 @@
         type="text"
         [(ngModel)]="entry.bodyWeight"
         name="bodyWeight"
+        clearInput
       ></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Waist</ion-label>
-      <ion-textarea [(ngModel)]="entry.waist" name="waist"></ion-textarea>
+      <ion-input [(ngModel)]="entry.waist" name="waist" clearInput></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Biceps</ion-label>
-      <ion-textarea [(ngModel)]="entry.biceps" name="biceps"></ion-textarea>
+      <ion-input
+        [(ngModel)]="entry.biceps"
+        name="biceps"
+        clearInput
+      ></ion-input>
     </ion-item>
     <ion-button type="submit">Save</ion-button>
   </form>

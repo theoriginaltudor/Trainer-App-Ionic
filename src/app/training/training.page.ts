@@ -87,6 +87,10 @@ export class TrainingPage implements OnInit {
     this.historyList[i].push('');
   }
 
+  removeSet(i, j) {
+    this.historyList[i].splice(j, 1);
+  }
+
   createWorkoutHistory() {
     const date = (new Date()).toISOString();
     console.log("history list ", this.historyList);
