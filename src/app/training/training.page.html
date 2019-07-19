@@ -1,15 +1,24 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>training</ion-title>
+    <ion-title>{{ name }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div *ngFor="let exercise of exerciseNameList; let i = index">
     <p>{{ exercise }}</p>
-    <p>{{ recomendationsList[i] }}</p>
-    <ion-input type="text" [(ngModel)]="historyList[i]"></ion-input>
+    <p *ngIf="recomendationsList.length !== 0">{{ recomendationsList[i] }}</p>
+    <ion-input
+      type="text"
+      *ngFor="let set of historyList[i]; let j = index"
+      [(ngModel)]="historyList[i][j]"
+      clearInput
+    ></ion-input>
+    <ion-button (click)="addSet(i)">Add set</ion-button>
   </div>
-  <ion-button (click)="cancelWorkout()">Cancel workout</ion-button>
+  <ion-button *ngIf="!_id" (click)="addExercise()">
+    Add exercise
+  </ion-button>
   <ion-button (click)="finishWorkout()">Finish workout</ion-button>
+  <ion-button (click)="cancelWorkout()">Cancel workout</ion-button>
 </ion-content>

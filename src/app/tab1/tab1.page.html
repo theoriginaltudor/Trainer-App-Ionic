@@ -11,6 +11,7 @@
     <ion-list-header>
       <ion-label>Workouts</ion-label>
     </ion-list-header>
+    <ion-button (click)="startNewWorkout()">Start new workout</ion-button>
     <ion-item
       *ngFor="let workout of workoutList"
       (click)="presentPopover(workout)"

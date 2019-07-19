@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Workouts
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-item
+    *ngFor="let exercise of exercisesList"
+    [class.-selected]="exerciseIdList.includes(exercise._id)"
+    (click)="select(exercise._id)"
+  >
+    <ion-label>
+      {{ exercise.name }}
+    </ion-label>
+  </ion-item>
+  <ion-button (click)="popoverDismiss()">Close</ion-button>
+  <ion-button (click)="addExercises()">Add Exercises</ion-button>
+</ion-content>

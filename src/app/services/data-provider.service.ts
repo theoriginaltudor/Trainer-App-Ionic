@@ -7,6 +7,7 @@ import { Storage } from '@ionic/storage';
 interface IApiResponse {
   success: boolean;
   data: any;
+  msg: string;
 }
 
 @Injectable()
@@ -37,6 +38,15 @@ export class DataProviderService {
         )
       }
     );
+  }
+
+  public getExercisesList(): Observable<IApiResponse> {
+    return this.http.get<IApiResponse>(`${this.API_URL}/exercises/`, {
+      headers: new HttpHeaders().set(
+        "Authorization",
+        `Bearer ${this.auth.idToken}`
+      )
+    });
   }
 
   public getWorkoutsList(clientId): Observable<IApiResponse> {
@@ -81,6 +91,22 @@ export class DataProviderService {
         )
       }
     );
+  }
+
+  /**
+   * createHistoryEntry
+   */
+  public addNewWorkout(workout) {
+    return this.http.post<IApiResponse>(
+      `${this.API_URL}/create-workout`,
+      workout,
+      {
+        headers: new HttpHeaders().set(
+          "Authorization",
+          `Bearer ${this.auth.idToken}`
+        )
+      }
+    )
   }
 
   /**

@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { TrainingPage } from './training.page';
+import { ExerciseListComponent } from '../exercise-list/exercise-list.component';
 
 const routes: Routes = [
   {
@@ -19,8 +20,9 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
   ],
-  declarations: [TrainingPage]
+  declarations: [TrainingPage, ExerciseListComponent],
+  entryComponents: [ExerciseListComponent]
 })
-export class TrainingPageModule {}
+export class TrainingPageModule { }

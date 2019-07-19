@@ -3,6 +3,7 @@ import { DataProviderService } from '../services/data-provider.service';
 import { AuthService } from '../services/auth.service';
 import { PopoverController } from '@ionic/angular';
 import { WorkoutPreviewComponent } from '../workout-preview/workout-preview.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab1',
@@ -13,11 +14,11 @@ export class Tab1Page {
   id: string;
   workoutList: any[];
 
-  constructor(private data: DataProviderService, private auth: AuthService, public popoverController: PopoverController) { }
+  constructor(private data: DataProviderService, private auth: AuthService, public popoverController: PopoverController, private router: Router) { }
 
   ionViewDidEnter(): void {
-    const clientId = this.auth.user.name;
-    this.data.getClient(clientId).subscribe((response) => {
+    const clientEmail = this.auth.user.name;
+    this.data.getClient(clientEmail).subscribe((response) => {
       this.id = response.data[0]._id;
       this.populateList(this.id);
     })
@@ -36,5 +37,12 @@ export class Tab1Page {
       componentProps: { "workout": workout }
     });
     return await popover.present();
+  }
+
+  startNewWorkout() {
+    this.router.navigate(['training', {
+      name: "New workout",
+      clientId: this.id
+    }]);
   }
 }
